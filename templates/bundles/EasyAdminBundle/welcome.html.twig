@@ -1,0 +1,105 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{% extends '@!EasyAdmin/page/content.html.twig' %}
+
+{% block page_title 'Welcome to EasyAdmin 3' %}
+
+{% block page_content %}
+	<style>
+		p {
+			max-width: 600px;
+		}
+		.monGraph {
+			width: 500px;
+			height: 400px;
+		}
+
+		.mon-chart {
+			width: 150px;
+			height: 200px;
+		}
+
+		.bg-success,
+		.bg-success > a {
+			color: #fff !important;
+		}
+	</style>
+	
+	<div class="row">
+		<div class="col-md-3 col-sm-6 col-12">
+			<div class="info-box">
+				<span class="info-box-icon bg-success">
+<i class="far fa-address-card"></i>
+
+				</span>
+
+				<div class="info-box-content">
+					<span class="info-box-text">Nombre d'utilisateurs</span>
+					<span class="info-box-number">{{ nombreUsers }}</span>
+				</div>
+				<!-- /.info-box-content -->
+			</div>
+			<!-- /.info-box -->
+		</div>
+		<div class="col-md-3 col-sm-6 col-12">
+			<div class="info-box">
+				<span class="info-box-icon bg-success">
+					<i class="far fa-address-book"></i>
+
+				</span>
+
+				<div class="info-box-content">
+					<span class="info-box-text">Bookmarks</span>
+					<span class="info-box-number">410</span>
+				</div>
+				<!-- /.info-box-content -->
+			</div>
+			<!-- /.info-box -->
+		</div>
+		<div class="col-md-3 col-sm-6 col-12">
+			<div class="info-box">
+				<span class="info-box-icon bg-success">
+					<i class="far fa-user"></i>
+				</span>
+
+				<div class="info-box-content">
+					<span class="info-box-text">Bookmarks r</span>
+					<span class="info-box-number">410</span>
+				</div>
+				<!-- /.info-box-content -->
+			</div>
+			<!-- /.info-box -->
+		</div>
+		<div class="col-md-3 col-sm-6 col-12">
+			<div class="info-box">
+				<span class="info-box-icon bg-success">
+					<i class="far fa-flag"></i>
+				</span>
+
+				<div class="info-box-content">
+					<span class="info-box-text">Bookmarks test</span>
+					<span class="info-box-number">410</span>
+				</div>
+				<!-- /.info-box-content -->
+			</div>
+			<!-- /.info-box -->
+		</div>
+
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-5">{{ render_chart(chart,{'class':'monGraph'}) }}</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-6">{{ render_chart(chart2,{'class':'mon-chart'}) }}</div>
+	</div>
+
+	<div class="row">
+		{% for post in posts %}
+			<span class="badge badge-pill">
+				<img src="{{ vich_uploader_asset(post, 'imageFile') }}" class="img-thumbnail" style="width: 50px; height:50px">
+			</span>
+		{% endfor %}
+	</div>
+
+
+{% endblock %}
